@@ -46,10 +46,10 @@ app.use(cookieParser());
 app.use(cors());
 
 app.get("/", (req, res)=>{
-    res.json({result: "ok", data:[1,2,3,4,5]})
+    res.send("API");
 })
 //U2db00ef1712aa45bf9fcca64c3c82501
-app.get('/api/v1/unlink-richmenu', (req, res) => {    
+app.get('/logout', (req, res) => {    
     client.unlinkRichMenuFromUser("U2db00ef1712aa45bf9fcca64c3c82501");
     res.json({
         data: req.body
@@ -89,8 +89,6 @@ app.post('/loginrich', (req, res) => {
                         console.log('รหัสถูกต้อง2')
                         res.end();
                     } else {
-                      
-                        res.send('page 3')
                         res.end();
                     }
 

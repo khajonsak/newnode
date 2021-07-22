@@ -1,0 +1,22 @@
+#1. Set engines
+-----------------------------------
+ "engines": {
+    "node": "12.16.3",
+    "npm": "6.14.4"
+  }
+
+#2. Heroku cli
+-----------------------------------
+sudo yarn global add heroku
+
+#3. Check log
+-----------------------------------
+heroku logs --tail --app heroku-cm-demo
+echo "# node" >> README.md
+echo "# newnode" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/khajonsak/newnode.git
+git push -u origin main
