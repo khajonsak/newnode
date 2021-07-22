@@ -65,7 +65,7 @@ app.post('/loginrich', (req, res) => {
      if(results.length > 0){ 
          req.session.loggeedin = true;
          req.session.userId = userId;
-         client.linkRichMenuToUser(userId, "richmenu-1753cf92786d4090d9590e8545094831");
+         client.linkRichMenuToUser(userId, "richmenu-1ff95dc9657347843af4c1dfefd1c8a0");
      
          console.log('รหัสถูกต้อง')
          res.end();
@@ -74,7 +74,7 @@ app.post('/loginrich', (req, res) => {
             if(results.length > 0){ 
                 req.session.loggeedin = true;
                 req.session.userId = userId;
-                client.linkRichMenuToUser(userId, "richmenu-1ff95dc9657347843af4c1dfefd1c8a0");
+                client.linkRichMenuToUser(userId, "richmenu-b6d72bcade5253a3b911cbcf472ba780");
           
                 console.log('รหัสถูกต้อง1')
                 res.end();
