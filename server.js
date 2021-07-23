@@ -57,7 +57,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.post('/loginrich', (req, res) => {
-    
+    //menus
     const { username, password, userId } = req.body;
     console.log(req.body);
     if (username && password){
@@ -65,11 +65,12 @@ app.post('/loginrich', (req, res) => {
      if(results.length > 0){ 
          req.session.loggeedin = true;
          req.session.userId = userId;
-         client.linkRichMenuToUser(userId, "richmenu-1ff95dc9657347843af4c1dfefd1c8a0");
+         client.linkRichMenuToUser(userId, "richmenu-d80297d2436001c049a408bdb20ab445");
      
          console.log('รหัสถูกต้อง')
          res.end();
      } else if (username && password) {
+         //menut
         connection.query('SELECT * FROM user2 WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
             if(results.length > 0){ 
                 req.session.loggeedin = true;
@@ -78,8 +79,9 @@ app.post('/loginrich', (req, res) => {
           
                 console.log('รหัสถูกต้อง1')
                 res.end();
-                
+               
             } else if (username && password) {
+                // menue
                 connection.query('SELECT * FROM user3 WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
                     if(results.length > 0){ 
                         req.session.loggeedin = true;
