@@ -12,6 +12,7 @@ const mysql = require('mysql');
 const PORT = process.env.PORT || 8080;
 
 
+
 const connection = mysql.createConnection({
     host: 'mysql-khajonsak.alwaysdata.net',
     user: 'khajonsak',
@@ -86,7 +87,7 @@ app.post('/loginrich', (req, res) => {
                     if(results.length > 0){ 
                         req.session.loggeedin = true;
                         req.session.userId = userId;
-                        client.linkRichMenuToUser(userId, "richmenu-e2952877c86a4b19eefc73158a6795b2");
+                        client.linkRichMenuToUser(userId, "richmenu-e6a50b20903b34bbc9988d6eb687b70f");
                   
                         console.log('รหัสถูกต้อง2')
                         res.end();
