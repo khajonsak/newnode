@@ -62,7 +62,7 @@ app.post('/loginrich', (req, res) => {
     const { username, password, userId } = req.body;
     console.log(req.body);
     if (username && password){
-        connection.query('SELECT * FROM user1  WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
+        connection.query('SELECT * FROM userstudent  WHERE id = ? AND password = ?', [username, password], function(error, results, fields){
      if(results.length > 0){ 
          req.session.loggeedin = true;
          req.session.userId = userId;
@@ -71,7 +71,7 @@ app.post('/loginrich', (req, res) => {
          res.end();
      } else if (username && password) {
          //menut
-        connection.query('SELECT * FROM user2 WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
+        connection.query('SELECT * FROM userte WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
             if(results.length > 0){ 
                 req.session.loggeedin = true;
                 req.session.userId = userId;
