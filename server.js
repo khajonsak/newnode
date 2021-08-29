@@ -71,11 +71,11 @@ app.post('/loginrich', (req, res) => {
          res.end();
      } else if (username && password) {
          //menut
-        connection.query('SELECT * FROM userte WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
+        connection.query('SELECT * FROM usertelogin WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
             if(results.length > 0){ 
                 req.session.loggeedin = true;
                 req.session.userId = userId;
-                client.linkRichMenuToUser(userId, "richmenu-289ba709cdeb57215362e483abb924ec");
+                client.linkRichMenuToUser(userId, "richmenu-fca7365edeb5aa73cbbf55f3554d819e");
           
                 console.log('รหัสถูกต้อง1')
                 res.end();
