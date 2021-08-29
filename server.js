@@ -82,11 +82,11 @@ app.post('/loginrich', (req, res) => {
                
             } else if (username && password) {
                 // menue
-                connection.query('SELECT * FROM useragency WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
+                connection.query('SELECT * FROM useragencylogin WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
                     if(results.length > 0){ 
                         req.session.loggeedin = true;
                         req.session.userId = userId;
-                        client.linkRichMenuToUser(userId, "richmenu-0014f99ff10739fe287e9f7f73f12fb8");
+                        client.linkRichMenuToUser(userId, "richmenu-6c023ea73b040ac487213028cdde33a1");
                   
                         console.log('รหัสถูกต้อง2')
                         res.end();
