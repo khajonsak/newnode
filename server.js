@@ -59,19 +59,19 @@ app.get('/logout', (req, res) => {
 
 app.post('/loginrich', (req, res) => {
     //menus
-    const { username, password, userId } = req.body;
+    const { userId } = req.body;
     console.log(req.body);
-    if (username && password){
-        connection.query('SELECT * FROM userstudent  WHERE id = ? AND password = ?', [username, password], function(error, results, fields){
+    if (userId){
+        connection.query('SELECT * FROM userstudent  WHERE id = ? ' [userId], function(error, results, fields){
      if(results.length > 0){ 
          req.session.loggeedin = true;
          req.session.userId = userId;
          client.linkRichMenuToUser(userId, "richmenu-c389d9f81d83185adfa30f1c3525271d");
          console.log('รหัสถูกต้อง')
          res.end();
-     } else if (username && password) {
+     } else if (userId) {
          //menut
-        connection.query('SELECT * FROM usertelogin WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
+        connection.query('SELECT * FROM usertelogin WHERE userid = ? ', [userId], function(error, results, fields){
             if(results.length > 0){ 
                 req.session.loggeedin = true;
                 req.session.userId = userId;
@@ -80,9 +80,9 @@ app.post('/loginrich', (req, res) => {
                 console.log('รหัสถูกต้อง1')
                 res.end();
                
-            } else if (username && password) {
+            } else if (userId) {
                 // menue
-                connection.query('SELECT * FROM useragencylogin WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
+                connection.query('SELECT * FROM useragencylogin WHERE userid = ?', [userId], function(error, results, fields){
                     if(results.length > 0){ 
                         req.session.loggeedin = true;
                         req.session.userId = userId;
@@ -103,7 +103,7 @@ app.post('/loginrich', (req, res) => {
  });
 
  }
-   
+
 })
 
 app.listen(PORT, ()=>{
