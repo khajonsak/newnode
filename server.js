@@ -59,7 +59,7 @@ app.get('/logout', (req, res) => {
 
 app.post('/loginrich', (req, res) => {
     //menus
-    const {userId} = req.body;
+    const { user, name, userId } = req.body;
     console.log(req.body);
     if (userId){
         connection.query('SELECT * FROM userstudent  WHERE id = ? ', [userId], function(error, results, fields){
@@ -71,7 +71,7 @@ app.post('/loginrich', (req, res) => {
          res.end();
      } else if (userId) {
          //menut
-        connection.query('SELECT * FROM usertelogin WHERE userid = ? ', [userId], function(error, results, fields){
+        connection.query('SELECT * FROM usertelogin WHERE userid = ?', [userId], function(error, results, fields){
             if(results.length > 0){ 
                 req.session.loggeedin = true;
                 req.session.userId = userId;
@@ -82,7 +82,7 @@ app.post('/loginrich', (req, res) => {
                
             } else if (userId) {
                 // menue
-                connection.query('SELECT * FROM useragencylogin WHERE userid = ?', [userId], function(error, results, fields){
+                connection.query('SELECT * FROM useragencylogin WHERE userid = ? ', [userId], function(error, results, fields){
                     if(results.length > 0){ 
                         req.session.loggeedin = true;
                         req.session.userId = userId;
@@ -103,7 +103,7 @@ app.post('/loginrich', (req, res) => {
  });
 
  }
-
+   
 })
 
 app.listen(PORT, ()=>{
