@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+var popup = require('popups');
 const express = require('express');
 var session = require('express-session');
 const path = require('path');
@@ -91,6 +91,9 @@ app.post('/loginrich', (req, res) => {
                         console.log('รหัสถูกต้อง2')
                         res.end();
                     } else {
+                        popup.alert({
+                            content: 'Hello!'
+                        });
                         res.end();
                     }
 
