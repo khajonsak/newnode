@@ -91,9 +91,6 @@ app.post('/loginrich', (req, res) => {
                         console.log('รหัสถูกต้อง2')
                         res.end();
                     } else {
-                        popup.alert({
-                            content: 'Hello!'
-                        });
                         res.end();
                     }
 
