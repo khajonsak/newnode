@@ -59,10 +59,10 @@ app.get('/logout', (req, res) => {
 
 app.post('/loginrich', (req, res) => {
     //menus
-    const { userId } = req.body;
+    const {userId} = req.body;
     console.log(req.body);
     if (userId){
-        connection.query('SELECT * FROM userstudent  WHERE id = ? ' [userId], function(error, results, fields){
+        connection.query('SELECT * FROM userstudent  WHERE id = ? ', [userId], function(error, results, fields){
      if(results.length > 0){ 
          req.session.loggeedin = true;
          req.session.userId = userId;
