@@ -62,14 +62,6 @@ app.post('/loginrich', (req, res) => {
     const { user, name, userId } = req.body;
     console.log(req.body);
     if (userId){
-        connection.query('SELECT * FROM userstudent  WHERE id = ? ', [userId], function(error, results, fields){
-     if(results.length > 0){ 
-         req.session.loggeedin = true;
-         req.session.userId = userId;
-         client.linkRichMenuToUser(userId, "richmenu-c389d9f81d83185adfa30f1c3525271d");
-         console.log('รหัสถูกต้อง')
-         res.end();
-     } else if (userId) {
          //menut
         connection.query('SELECT * FROM usertelogin WHERE userid = ?', [userId], function(error, results, fields){
             if(results.length > 0){ 
@@ -86,7 +78,7 @@ app.post('/loginrich', (req, res) => {
                     if(results.length > 0){ 
                         req.session.loggeedin = true;
                         req.session.userId = userId;
-                        client.linkRichMenuToUser(userId, "richmenu-166057aff4edc4d3256caa63dd25bfd3");
+                        client.linkRichMenuToUser(userId, "richmenu-c8abc3207093d48e3c1cd51235e5da58");
                   
                         console.log('รหัสถูกต้อง2')
                         res.end();
@@ -102,9 +94,6 @@ app.post('/loginrich', (req, res) => {
      
  });
 
- }
-   
-})
 
 app.listen(PORT, ()=>{
     console.log(`Serer is running. ${PORT}`)
