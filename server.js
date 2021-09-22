@@ -67,7 +67,7 @@ app.post('/loginrich', (req, res) => {
             if(results.length > 0){ 
                 req.session.loggeedin = true;
                 req.session.userId = userId;
-                client.linkRichMenuToUser(userId, "richmenu-59e5c3e57a5fce788a8d61a3a415c91e");
+                client.linkRichMenuToUser(userId, "richmenu-8e77502d437b29bed306772931d7af5f");
           
                 console.log('รหัสถูกต้อง1')
                 res.end();
